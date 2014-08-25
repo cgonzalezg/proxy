@@ -1,16 +1,15 @@
 var cron = require('cron');
-var tools = require('./tomcat');
-var response =[];
+var Promise = require( "es6-promise" ).Promise;
+var tools = require('./tomcatPromise');
+var services = []
 var cronJob = cron.job("*/1 * * * * *", function(){
-  response = []
-  var res = tools.tomcat('localhost', response);
-  console.log("Sevice name Scheduler ->" + JSON.stringify(res, null, 4));
-  console.log("Sevice name Scheduler ->" + res);
+  tools.tomcat().then(function(val) {
+    services = val
+    console.log("shit"+service); // 1
+  })
+
+
 });
-//console.log("Sevice name Scheduler ->" + JSON.stringify(getRoute('/usr/share/tomcat7-admin/manager'), null, 4));
-
-
-
 
 function getRoute (service_name) {
   var obj = response.filter(function ( service_name ) {

@@ -1,17 +1,6 @@
 var http = require('http'),
     httpProxy = require('http-proxy');
-
-var schedule = require('node-schedule');
-
-var rule = new schedule.RecurrenceRule();
-rule.minute = 1;
-
-var j = schedule.scheduleJob(rule, function(){
-  console.log('The answer to life, the universe, and everything!');
-    res = http.get({host:'http://localhost:8080',path:'/manager/text/list'});
-    console.log(res)
-});
-
+var scheduler = require('./schedulerv2');
 
 
 //var proxyEntries = [{ "name":"1" "server":"localhost:1111" }, { "name":"2" "server":"localhost:2222" }]

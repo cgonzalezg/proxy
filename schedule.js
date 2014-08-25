@@ -2,8 +2,8 @@ var cron = require('cron');
 var http = require('http');
 var StringDecoder = require('string_decoder').StringDecoder;
 var response =[];
-var cronJob = cron.job("*/1 * * * * *", function(){
-    // perform operation e.g. GET request http.get() etc.
+var cronJob = cron.job("*/3 * * * * *", function(){
+
   var options = {
     host: 'localhost',
     port: 8080,
